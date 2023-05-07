@@ -1,5 +1,6 @@
 package com.validation.ex.handling.advice;
 
+import com.validation.ex.handling.exception.UserNotFoundExcetption;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,5 +23,14 @@ public class ApplicationExceptionHandler {
         });
 
     return errorMap;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(UserNotFoundExcetption.class)
+    public Map<String,String> handleBusinessException(UserNotFoundExcetption exception) {
+        Map<String,String> errorMap = new HashMap<>();
+
+        errorMap.put("errorMessage", exception.getMessage());
+        return errorMap;
     }
 }

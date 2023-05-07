@@ -2,6 +2,7 @@ package com.validation.ex.handling.controller;
 
 import com.validation.ex.handling.dto.UserRequest;
 import com.validation.ex.handling.entity.User;
+import com.validation.ex.handling.exception.UserNotFoundExcetption;
 import com.validation.ex.handling.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable int id) {
+    public ResponseEntity<User> getUser(@PathVariable int id) throws UserNotFoundExcetption {
         return  ResponseEntity.ok(userService.getUser(id));
     }
 }

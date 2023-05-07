@@ -2,6 +2,7 @@ package com.validation.ex.handling.service;
 
 import com.validation.ex.handling.dto.UserRequest;
 import com.validation.ex.handling.entity.User;
+import com.validation.ex.handling.exception.UserNotFoundExcetption;
 import com.validation.ex.handling.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUser(int id) {
-        return userRepository.findByUserId(id);
+    public User getUser(int id) throws UserNotFoundExcetption {
+        final User byUserId = userRepository.findByUserId(id);
+
+        if (byUserId != null) {
+            return byUserId;
+        } else {
+            throw new UserNotFoundExcetption("user not found with id :"+ id);
+        }
     }
 
 
