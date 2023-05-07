@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "c7ab1b1d-9ab5-479d-9ff9-524c5cdc2a5e",
+		"name": "SpringbootValidationAndExceptionHandler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Deepak\",\r\n    \"email\" : \"deepak@gmail.com\",\r\n    \"mobile\" : \"+919206981946\",\r\n    \"gender\" : \"M\",\r\n    \"age\" : \"32\",\r\n    \"nationality\" : \"Indian\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users/fetchAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/fetchAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"fetchAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
